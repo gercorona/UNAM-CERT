@@ -14,7 +14,7 @@ REGRESA: Un booleano True para un numero primo y False para un numero no primo
     elif numero % 2 == 0 or numero <= 0:
         return False
     else:
-        if numero % 5 == 0 or numero % 7 == 0:
+        if numero % 5 == 0 or numero % 7 == 0 or numero % 9 == 0:
             if numero == 5 or numero == 7:
                 return True
             else: 
