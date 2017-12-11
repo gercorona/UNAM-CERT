@@ -6,9 +6,12 @@ def hash_md5(archivo):
 
 def hash_sha1(archivo):
     hash = hashlib.new("sha1", archivo)
+    return hash
 
 archivo = open ('nmap.xml','r')
 contenido= archivo.read()
 archivo.close()
-hash_md5(contenido)
-hash_sha1(contenido)
+md5 = hash_md5(contenido)
+sha1 = hash_sha1(contenido)
+print sha1.hexdigest()
+print md5.hexdigest()
