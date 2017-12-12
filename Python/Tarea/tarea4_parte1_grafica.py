@@ -152,10 +152,10 @@ f2.write(o+"\n")
 f1.close()
 #Grafica para punto extra:
 labels = ['Apache', 'Dionaea', 'Nginx', 'Otros']
-servers = [a, d, n, o]
+servers = [apache, dionaea, nginx, otros]
 colors = ['red', 'green', 'yellow', 'blue']
 #servers es la lista con los valores, labels son las etiquetas, colores especificados, con indicacion de porcentaje
-plt.pie(servers, labels=labels, colors=colors, shadow = true, autopct='%1.1f%%')
+plt.pie(servers, labels=labels, colors=colors, shadow = True, autopct='%1.1f%%')
 plt.title("Grafica de product en servidores")
 plt.show()
 
