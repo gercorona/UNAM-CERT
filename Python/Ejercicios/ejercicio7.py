@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #UNAM-CERT
 #Gerardo Corona Lopez
-#python ejercicio7.py -s 87.118.110.170 -p 9889 -U usuarios.txt -P passwords.txt
+#python ejercicio7.py -s <IP> -p <PORT> -U usuarios.txt -P passwords.txt
 
 import sys
 import optparse
