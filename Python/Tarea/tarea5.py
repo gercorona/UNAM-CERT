@@ -61,15 +61,15 @@ def buildURL(server,port, protocol = 'http'):
 
 def makeRequest(host, user, password):
     try:
-    	response = get(host, auth=(user,password))
-    	if response.status_code == 200:
-    	    print 'CREDENCIALES ENCONTRADAS!: %s\t%s' % (user,password)
+        response = get(host, auth=(user,password))
+        if response.status_code == 200:
+            print 'CREDENCIALES ENCONTRADAS!: %s\t%s' % (user,password)
             archivo=open('archivo.txt','w')
             archivo.write(user+','+password)
             archivo.close()
             return True
-    	else:
-    	    print 'NO FUNCIONO :c '
+        else:
+            print 'NO FUNCIONO :c '
             return False
     except ConnectionError:
         printError('Error en la conexion, tal vez el servidor no esta arriba.',True)
@@ -160,7 +160,7 @@ if __name__ == '__main__':
                             print "Contraseña: " + password
                             makeRequest(url, usuario, password)
                             makeRequestDigest(url, usuario, password)
-                    if opts.report and var==2:
+                    elif opts.report and var==2:
                         reporte.write('\n'+usuario+'\n\n')
                         reporte.write(password+'\n')
                         if makeRequest(url, usuario, password):
@@ -171,6 +171,9 @@ if __name__ == '__main__':
                             reporte.write('ENCONTRADO CON DIGEST\n')
                         else:
                             reporte.write('NO ENCONTRADO CON DIGEST\n')
+                    else:
+                        makeRequest(url, usuario, password)
+                        makeRequestDigest(url, usuario, password)
                 f2.close()
             f1.close()
         #si ambas entradas no son archivos
@@ -210,6 +213,9 @@ if __name__ == '__main__':
                     reporte.write('ENCONTRADO CON DIGEST\n')
                 else:
                     reporte.write('NO ENCONTRADO CON DIGEST\n')
+            else:
+                makeRequest(url, opts.user, opts.password)
+                makeRequestDigest(url, opts.user, opts.password)
         #si el usuario es un archivo y la contraseña no
         elif os.path.isfile(opts.user) and os.path.isfile(opts.password)==False:
             f1= open(opts.user,'r')
@@ -237,7 +243,7 @@ if __name__ == '__main__':
                         print usuario
                         makeRequest(url, usuario, opts.password)
                         makeRequestDigest(url, usuario, opts.password)
-                if opts.report and var==2:
+                elif opts.report and var==2:
                     reporte.write('\n'+usuario+'\n\n')
                     reporte.write(opts.password+'\n\n')
                     if makeRequest(url, usuario, opts.password):
@@ -248,6 +254,10 @@ if __name__ == '__main__':
                         reporte.write('ENCONTRADO CON DIGEST\n')
                     else:
                         reporte.write('NO ENCONTRADO CON DIGEST\n')
+                else:
+                    makeRequest(url, usuario, opts.password)
+                    makeRequestDigest(url, usuario, opts.password)
+
             f1.close()
         #si el las contraseñas son archivo y el usuario no
         elif os.path.isfile(opts.user)==False and os.path.isfile(opts.password):
@@ -276,7 +286,7 @@ if __name__ == '__main__':
                         print "Contraseña: " + password
                         makeRequest(url, opts.user, password)
                         makeRequestDigest(url, opts.user, password)
-                if opts.report and var==2:
+                elif opts.report and var==2:
                     reporte.write('\n'+opts.user+'\n\n')
                     reporte.write(password+'\n\n')
                     if makeRequest(url, opts.user, password):
@@ -287,6 +297,10 @@ if __name__ == '__main__':
                         reporte.write('ENCONTRADO CON DIGEST\n')
                     else:
                         reporte.write('NO ENCONTRADO CON DIGEST\n')
+                else:
+                    makeRequest(url, opts.user, password)
+                    makeRequestDigest(url, opts.user, password)
+
             f2.close()
 
 
@@ -295,3 +309,4 @@ if __name__ == '__main__':
     except Exception as e:
         printError('Ocurrio un error inesperado')
 #printError(e, True)
+    
