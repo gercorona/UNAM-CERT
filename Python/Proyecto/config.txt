@@ -1,0 +1,10 @@
+Kabeceras=off
+metodos=off
+correo=off
+tor=off
+report=off
+verbose=off
+cms=off
+https=off
+agent=off
+agente=papu
