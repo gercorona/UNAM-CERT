@@ -1,0 +1,35 @@
+Extraccion de informacion de un servidor web
+
+- Python 2 o Python 3
+
+- Obtener la version del servidor web analizando las cabeceras de la respuesta a una peticion HTTP
+
+- Obtener la version de PHP analizando las cabeceras de la respuesta a una peticion HTTP
+
+- Determinar los metodos HTTP habilitados en el servidor
+
+- Obtener CMS del servicio web analizando la respuesta
+
+- Extraer todos los correos de la pagina
+
+- Buscar en el servidor archivos/directorios mediante una lista (cuidado con el historial de redirecciones)
+
+- Posibilidad de enviar peticiones a traves de tor 
+
+- Generar reporte en un archivo .txt
+
+- Implementar un modo verboso
+
+- Debe implementar un archivo de configuracion en el que se habiliten o deshabiliten las opciones anteriores (el archivo se indica a traves de una bandera)
+
+- Debe implementar banderas para recibir argumentos desde la linea de comandos.  Los argumentos tienen prioridad sobre el archivo de configuracion.
+    - habilitar analisis de cabeceras
+    - habilitar deteccion de metodos HTTP
+    - habilitar extraccion de correos
+    - habilitar peticiones a traves de tor
+    - indicar lista para busqueda de archivos (habilita la busqueda)
+    - indicar nombre del archivo de reporte
+
+- Cambiar el agente de usuario por uno indicado en el archivo de configuracion
+
+- Manejar excepciones para evitar que el programa termine abruptamente
