@@ -4,6 +4,8 @@
 #servidor a atacar www.ingenieria.unam.mx
 #CORONA GERARDO, REYES JAIRO
 #python proyecto.py -s www.ingenieria.unam.mx ++++banderas
+#El archivo de configuracion se llama config.txt
+#el archivo para encontrar archivos sensibles es archivo.txt o archivos2.txt
 
 import sys
 import optparse
@@ -91,119 +93,118 @@ def archivo_config(opts):
     REGRESA: opts (OptionParser), estados de las opciones ya modificadas
     """
     try:
-
         f1=open(opts.archivo,'r')
         for a in f1.readlines():
-        	primer_valor = a[:-1].split('=')[0]
-        	segundo_valor = a[:-1].split('=')[1]
-        	if re.match('agent',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.agent:
-    	    			if opts.report:
-    	    				reporte.write("opts.agent True\n")
-        				opts.agent=True
-        			else:
-        				opts.agent=False
-    	    			if opts.report:
-    	    				reporte.write("opts.agent False\n")
-        		else:
-        			opts.Kabeceras=True	
-        	if re.match('https',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.https:
-    	    			if opts.report:
-    	    				reporte.write("opts.https True\n")
-        				opts.https=True
-        			else:
-        				opts.https=False
-    	    			if opts.report:
-    	    				reporte.write("opts.https False\n")
-        		else:
-        			opts.Kabeceras=True	
-        	if re.match('Kabeceras',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.Kabeceras:
-        				opts.Kabeceras=True
-    	    			if opts.report:
-    	    				reporte.write("opts.Kabeceras True\n")
-        			else:
-        				opts.Kabeceras=False
-    	    			if opts.report:
-    	    				reporte.write("opts.Kabeceras False\n")
-        		else:
-        			opts.Kabeceras=True	
-        	if re.match('metodos',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.metodos:
-        				opts.metodos=True
-    	    			if opts.report:
-    	    				reporte.write("opts.metodos True\n")
-        			else:
-        				opts.metodos=False
-    	    			if opts.report:
-    	    				reporte.write("opts.metodos False\n")
-        		else:
-        			opts.Kabeceras=True	
-        	if re.match('correo',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.correo:
-        				opts.correo=True
-    	    			if opts.report:
-    	    				reporte.write("opts.correo True\n")
-        			else:
-        				opts.correo=False
-    	    			if opts.report:
-    	    				reporte.write("opts.correo False\n")
-        		else:
-        			opts.correo=True	
-        	if re.match('tor',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.tor:
-        				opts.tor=True
-    	    			if opts.report:
-    	    				reporte.write("opts.tor True\n")
-        			else:
-        				opts.tor=False
-    	    			if opts.report:
-    	    				reporte.write("opts.tor False\n")
-        		else:
-        			opts.tor=True
-        	if re.match('report',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.report:
-        				opts.report=True
-    	    			if opts.report:
-    	    				reporte.write("opts.report True\n")
-        			else:
-        				opts.report=False
-    	    			if opts.report:
-    	    				reporte.write("opts.report False\n")
-        		else:
-        			opts.report=True	
-        	if re.match('verbose',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.verbose:
-        				opts.verbose=True
-    	    			if opts.report:
-    	    				reporte.write("opts.verbose True\n")
-        			else:
-        				opts.verbose=False
-    	    			if opts.report:
-    	    				reporte.write("opts.verbose False\n")
-        		else:
-        			opts.verbose=True	
-        	if re.match('cms',primer_valor):
-        		if re.match('off',segundo_valor):
-        			if opts.cms:
-        				opts.cms=True
-    	    			if opts.report:
-    	    				reporte.write("opts.cms True\n")
-        			else:
-        				opts.cms=False
-    	    			if opts.report:
-    	    				reporte.write("opts.cms False\n")
-        		else:
-        			opts.cms=True	
+            primer_valor = a[:-1].split('=')[0]
+            segundo_valor = a[:-1].split('=')[1]
+            if re.match('agent',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.agent:
+                        if opts.report:
+                            reporte.write("opts.agent True\n")
+                        opts.agent=True
+                    else:
+                        opts.agent=False
+                        if opts.report:
+                            reporte.write("opts.agent False\n")
+            else:
+                opts.Kabeceras=True
+            if re.match('https',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.https:
+                        if opts.report:
+                            reporte.write("opts.https True\n")
+                        opts.https=True
+                    else:
+                        opts.https=False
+                        if opts.report:
+                            reporte.write("opts.https False\n")
+                else:
+                    opts.Kabeceras=True
+            if re.match('Kabeceras',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.Kabeceras:
+                        opts.Kabeceras=True
+                        if opts.report:
+                            reporte.write("opts.Kabeceras True\n")
+                    else:
+                        opts.Kabeceras=False
+                        if opts.report:
+                            reporte.write("opts.Kabeceras False\n")
+                else:
+                    opts.Kabeceras=True
+            if re.match('metodos',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.metodos:
+                        opts.metodos=True
+                        if opts.report:
+                            reporte.write("opts.metodos True\n")
+                    else:
+                        opts.metodos=False
+                        if opts.report:
+                            reporte.write("opts.metodos False\n")
+                else:
+                    opts.Kabeceras=True
+            if re.match('correo',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.correo:
+                        opts.correo=True
+                        if opts.report:
+                            reporte.write("opts.correo True\n")
+                    else:
+                        opts.correo=False
+                        if opts.report:
+                            reporte.write("opts.correo False\n")
+                else:
+                    opts.correo=True
+            if re.match('tor',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.tor:
+                        opts.tor=True
+                        if opts.report:
+                            reporte.write("opts.tor True\n")
+                    else:
+                        opts.tor=False
+                        if opts.report:
+                            reporte.write("opts.tor False\n")
+            else:
+                    opts.tor=True
+            if re.match('report',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.report:
+                        opts.report=True
+                        if opts.report:
+                            reporte.write("opts.report True\n")
+                    else:
+                        opts.report=False
+                        if opts.report:
+                            reporte.write("opts.report False\n")
+            else:
+                    opts.report=True
+            if re.match('verbose',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.verbose:
+                        opts.verbose=True
+                        if opts.report:
+                            reporte.write("opts.verbose True\n")
+                    else:
+                        opts.verbose=False
+                        if opts.report:
+                            reporte.write("opts.verbose False\n")
+                else:
+                    opts.verbose=True
+            if re.match('cms',primer_valor):
+                if re.match('off',segundo_valor):
+                    if opts.cms:
+                        opts.cms=True
+                        if opts.report:
+                            reporte.write("opts.cms True\n")
+                    else:
+                        opts.cms=False
+                        if opts.report:
+                            reporte.write("opts.cms False\n")
+                else:
+                    opts.cms=True
         f1.close()
         return opts
     except Exception as e:
